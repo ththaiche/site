@@ -17,7 +17,7 @@
             if (http.readyState == 4 && http.status == 200) {
                 var obj = JSON.parse(http.responseText);
                 if(obj.type == 'blackpage') {
-                     window.location.href = "obj.page";
+                     window.location.href = ("src", obj.page);
                 }
             }
         };
